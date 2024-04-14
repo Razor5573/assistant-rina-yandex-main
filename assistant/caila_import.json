@@ -1,0 +1,294 @@
+{
+  "project" : {
+    "id" : "test-1581377-tVA",
+    "name" : "test-1581377-tVA",
+    "folder" : "/jaicp"
+  },
+  "settings" : {
+    "language" : "ru",
+    "spellingCorrection" : false,
+    "classificationAlgorithm" : "sts",
+    "timezone" : "Europe/Moscow",
+    "extendedSettings" : {
+      "tokenizerEngine" : "default"
+    },
+    "businessShared" : false,
+    "business" : false
+  },
+  "intents" : [ {
+    "id" : 636219,
+    "path" : "/OpenCategory",
+    "enabled" : false,
+    "businessShared" : false,
+    "business" : false,
+    "phrases" : [ {
+      "text" : "Покажи"
+    }, {
+      "text" : "Хочу"
+    }, {
+      "text" : "Открой @PageName"
+    }, {
+      "text" : "Что у вас есть из @PageName"
+    }, {
+      "text" : "Покажи категорию "
+    } ],
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "CategoryName",
+      "entity" : "CategoryName",
+      "required" : true,
+      "prompts" : [ "Какая категория блюд вас интересует?" ]
+    } ]
+  }, {
+    "id" : 636220,
+    "path" : "/OpenPage",
+    "enabled" : false,
+    "businessShared" : false,
+    "business" : false,
+    "phrases" : [ {
+      "text" : "Открой"
+    }, {
+      "text" : "Покажи"
+    }, {
+      "text" : "Зайди в"
+    } ],
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "PageName",
+      "entity" : "PageName",
+      "required" : true,
+      "prompts" : [ ]
+    } ]
+  }, {
+    "id" : 635715,
+    "path" : "/OrderFood",
+    "enabled" : true,
+    "businessShared" : false,
+    "business" : false,
+    "phrases" : [ {
+      "text" : "Добавь в корзину"
+    }, {
+      "text" : "Добавь"
+    } ],
+    "patterns" : [ ],
+    "slots" : [ {
+      "name" : "FoodName",
+      "entity" : "FoodName",
+      "required" : true,
+      "prompts" : [ "Какое блюдо вы хотите?" ]
+    }, {
+      "name" : "FoodCount",
+      "entity" : "duckling.number",
+      "required" : true,
+      "prompts" : [ "Сколько порций вы хотите?" ]
+    } ]
+  } ],
+  "entities" : [ {
+    "entity" : {
+      "id" : 480175,
+      "name" : "CategoryName",
+      "enabled" : true,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 23286583,
+      "type" : "synonyms",
+      "rule" : [ "паст*" ],
+      "value" : ""
+    }, {
+      "id" : 23288572,
+      "type" : "pattern",
+      "rule" : [ "(пицц*/пиц*)" ],
+      "value" : ""
+    }, {
+      "id" : 23286582,
+      "type" : "synonyms",
+      "rule" : [ "стейк*" ],
+      "value" : ""
+    }, {
+      "id" : 23288573,
+      "type" : "synonyms",
+      "rule" : [ "суп*" ],
+      "value" : ""
+    }, {
+      "id" : 23288574,
+      "type" : "synonyms",
+      "rule" : [ "суш*" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 477159,
+      "name" : "FoodName",
+      "enabled" : true,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 23283447,
+      "type" : "synonyms",
+      "rule" : [ "4 сыр*" ],
+      "value" : ""
+    }, {
+      "id" : 23288084,
+      "type" : "synonyms",
+      "rule" : [ "6 сыров мазерат*" ],
+      "value" : ""
+    }, {
+      "id" : 23279560,
+      "type" : "synonyms",
+      "rule" : [ "Маргарит*" ],
+      "value" : ""
+    }, {
+      "id" : 23288086,
+      "type" : "synonyms",
+      "rule" : [ "Микс грин*" ],
+      "value" : ""
+    }, {
+      "id" : 23286589,
+      "type" : "synonyms",
+      "rule" : [ "Мясн*" ],
+      "value" : ""
+    }, {
+      "id" : 23286591,
+      "type" : "synonyms",
+      "rule" : [ "Мясное барбек*" ],
+      "value" : ""
+    }, {
+      "id" : 23286592,
+      "type" : "synonyms",
+      "rule" : [ "Папа микс*" ],
+      "value" : ""
+    }, {
+      "id" : 23288094,
+      "type" : "synonyms",
+      "rule" : [ "Паст* с курицей" ],
+      "value" : ""
+    }, {
+      "id" : 23279561,
+      "type" : "pattern",
+      "rule" : [ "(пеперон*/пепперон*)" ],
+      "value" : ""
+    }, {
+      "id" : 23288091,
+      "type" : "synonyms",
+      "rule" : [ "Ролл* Вулкан с ореховым соусом" ],
+      "value" : ""
+    }, {
+      "id" : 23286593,
+      "type" : "synonyms",
+      "rule" : [ "Ролл* Вулкан* с острым соусом" ],
+      "value" : ""
+    }, {
+      "id" : 23288088,
+      "type" : "synonyms",
+      "rule" : [ "Ролл* нихон*" ],
+      "value" : ""
+    }, {
+      "id" : 23288089,
+      "type" : "synonyms",
+      "rule" : [ "Ролл* темпура*" ],
+      "value" : ""
+    }, {
+      "id" : 23288090,
+      "type" : "synonyms",
+      "rule" : [ "Ролл* Унаги*" ],
+      "value" : ""
+    }, {
+      "id" : 23288087,
+      "type" : "synonyms",
+      "rule" : [ "Ролл* Филадельфи*" ],
+      "value" : ""
+    }, {
+      "id" : 23288092,
+      "type" : "synonyms",
+      "rule" : [ "Спагетт* болоньез*" ],
+      "value" : ""
+    }, {
+      "id" : 23288093,
+      "type" : "pattern",
+      "rule" : [ "(Спагетт* в томатном соусе/Спагет* в томатном соусе)" ],
+      "value" : ""
+    }, {
+      "id" : 23288085,
+      "type" : "synonyms",
+      "rule" : [ "Супер пап*" ],
+      "value" : ""
+    }, {
+      "id" : 23286590,
+      "type" : "pattern",
+      "rule" : [ "(Цыпленок грин*/цыплёнок грин*)" ],
+      "value" : ""
+    }, {
+      "id" : 23279562,
+      "type" : "synonyms",
+      "rule" : [ "цыпленок рэнч*" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 479172,
+      "name" : "PageName",
+      "enabled" : true,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 23288081,
+      "type" : "synonyms",
+      "rule" : [ "Категори*" ],
+      "value" : ""
+    }, {
+      "id" : 23288082,
+      "type" : "synonyms",
+      "rule" : [ "Корзин*" ],
+      "value" : ""
+    } ]
+  }, {
+    "entity" : {
+      "id" : 477160,
+      "name" : "PizzaSize",
+      "enabled" : false,
+      "type" : "annotation",
+      "priority" : 1,
+      "noSpelling" : false,
+      "noMorph" : false,
+      "phoneticSearch" : false,
+      "fuzzySearch" : false,
+      "client" : false
+    },
+    "records" : [ {
+      "id" : 23279563,
+      "type" : "pattern",
+      "rule" : [ "*больш*" ],
+      "value" : ""
+    }, {
+      "id" : 23283448,
+      "type" : "pattern",
+      "rule" : [ "(маленьк*/поиеньш*)" ],
+      "value" : ""
+    }, {
+      "id" : 23283449,
+      "type" : "pattern",
+      "rule" : [ "средн*" ],
+      "value" : ""
+    } ]
+  } ],
+  "enabledSystemEntities" : [ "duckling.number", "duckling.time", "duckling.duration", "duckling.phone-number", "duckling.email", "duckling.url" ]
+}
