@@ -16,6 +16,7 @@ const ReviewContainer = ({score, review, num}) => {
                 type={"textarea"}
                 value={review}
                 disabled={true}
+                style={{ resize: 'none', backgroundColor: 'white' }}
             />
         </div>
     )

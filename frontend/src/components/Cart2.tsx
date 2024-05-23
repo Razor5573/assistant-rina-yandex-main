@@ -92,27 +92,7 @@ export function Cart2(props: { items: any }) {
                 </h2> :
                 <div className='cart-data'>
                     <Container>
-                        {/*<CartProvider>
-                            {data.map((item, index) => (
-                                <>
-                                    <CartLine
-                                        item={item}
-                                        counterValues={counterValues}
-                                        index={index}
-                                        setCounterValues={setCounterValues}
-                                    />
-                                </>
-                            ))}
-                            <CartOrder
-                                onCheckout={
-                                    () => {
-                                        route.push("/restaurant/cart/pay");
-                                        PostService.payCheck(generateDishDto(), 1, checkSum)
-                                    }}
-                                order={orderData}
-                            />
-                        </CartProvider>*/}
-                        <Card style={{background: "transparent", position: "absolute", margin: "auto"}}>
+                        <Card style={{background: "white", position: "absolute", margin: "auto"}}>
                             {data.map((item, index) => (
                                 <>
                                     <CartLine
@@ -124,10 +104,11 @@ export function Cart2(props: { items: any }) {
                                 </>
                             ))}
                             <Button
-                                color="primary"
+                                style={{margin: "20px"}}
+                                color="warning"
                                 onClick={() => { route.push("/restaurant/cart/pay"); PostService.payCheck(generateDishDto(), 1, checkSum) }}
                             >
-                                Checkout
+                                Оплатить заказ
                             </Button>
                         </Card>
                     </Container>

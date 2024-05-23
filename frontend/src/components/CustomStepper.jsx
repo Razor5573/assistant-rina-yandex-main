@@ -20,18 +20,22 @@ const CustomStepper = ({ value, maxValue, onChange, onRemove, showRemove }) => {
 
     return (
         <InputGroup>
-            <InputGroupText addonType="prepend">
-                <Button color="primary" onClick={decrement} disabled={currentValue === 0}>
+            <InputGroupText addonType="prepend" style={{background: "none", border: "none",  borderRadius: "10px"}} >
+                <Button color="warning" onClick={decrement} disabled={currentValue === 0}>
                     -
                 </Button>
             </InputGroupText>
-            <InputGroupText>{currentValue}</InputGroupText>
-            <InputGroupText addonType="append">
-                <Button color="primary" onClick={increment} disabled={currentValue === maxValue}>
+            <InputGroupText style={{background: "none", borderRadius: "10px", height: "40px", marginTop: "5px"}}>
+                {currentValue}
+            </InputGroupText>
+            <InputGroupText addonType="append" style={{background: "none", border: "none", borderRadius: "10px"}}>
+                <Button color="warning" onClick={increment} disabled={currentValue === maxValue}>
                     +
                 </Button>
+            </InputGroupText>
+            <InputGroupText addonType="append" style={{background: "none", border: "none"}}>
                 {showRemove && (
-                    <Button color="danger" onClick={onRemove}>
+                    <Button style={{width: "127px"}} color="danger" onClick={onRemove} >
                         Удалить
                     </Button>
                 )}

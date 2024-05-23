@@ -10,11 +10,12 @@ const ReviewText = ({value, setValue}) => {
                     Отзыв...
                 </Label>
                 <Input
+                    style={{height:'100px',marginBottom:'10px'}}
                     value={value}
                     onChange={(e) => {
                            setValue(e.target.value);
                     }}>
-                    type={<textarea name="review" id="review" cols="30" rows="20"></textarea>}          {/*не работает*/}
+                    type={"textarea"}
                 </Input>
             </FormGroup>
         </Form>

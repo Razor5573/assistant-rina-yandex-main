@@ -19,11 +19,16 @@ const AddReview = () => {
                         onClick={() => {
                             PostService.AddReview(rating, value).then(
                                 () => router.replace("/restaurant/reviews"))
-                        }}>
+                        }}
+                        color="warning"
+                >
                     Опубликовать отзыв
                 </Button>
-                <Button view={"critical"}
-                        onClick={() => router.replace("/restaurant/reviews")}>
+                <Button color="warning"
+                        view={"critical"}
+                        onClick={() => router.replace("/restaurant/reviews")}
+                        style={{marginTop: '19px'}}
+                >
                     Отмена
                 </Button>
             </div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import {ProductCommon} from "./ProductCommon"
 import {useHistory} from "react-router-dom";
-import {Button, Col, Row, Spinner} from "reactstrap"
+import {Button, Card, Col, Row, Spinner} from "reactstrap"
 import {Counter} from "./Counter";
 import PostService from "../API/PostService";
 import urljoin from "url-join";
@@ -78,60 +78,45 @@ const ProductExample = (props: any) => {
         <div className="wrapper">
             <Row>
                 <Col lg={4}>
-                    <div className="product-info-container">
-                        <Button
-                            color="warning"
-                            onClick={() => {
-                                const newPath = urljoin('/restaurant');
-                                router.replace({
-                                    pathname: newPath,
-                                });
-                            }}
-                            style={{marginBottom:"20px"}}
-                        >
-                            {"<"}
-                        </Button>
-                        <div className="product-button-container">
-                            <ProductCommon
-                                actionButtonProps={{
-                                    actionButtonText: 'Добавить в корзину',
-                                    onClick: () => {
-                                        PostService.AddDishToCart(props.props.id, props.props.title, 1, array[0]);
-                                        handleClick(props.props.title, array[0]);
-                                    },
-                                }}
-                                product={product}
-                            />
+                    <Button
+                        color="warning"
+                        onClick={() => {
+                            const newPath = urljoin('/restaurant');
+                            router.replace({
+                                pathname: newPath,
+                            });
+                        }}
+                        style={{marginBottom:"20px", marginLeft: "20px"}}
+                    >
+                    {"<"}
+                    </Button>
+                    <Card>
+                        <div className="product-info-container">
+                            <div className="product-button-container">
+                                <ProductCommon
+                                    actionButtonProps={{
+                                        actionButtonText: 'Добавить в корзину',
+                                        onClick: () => {
+                                            PostService.AddDishToCart(props.props.id, props.props.title, 1, array[0]);
+                                            handleClick(props.props.title, array[0]);
+                                        },
+                                    }}
+                                    product={product}
+                                />
+                            </div>
+                            <div className='product-example-counter' style={{marginLeft:"20px"}}>
+                                <Counter props={[array, setArray, 0, 9999]}/>
+                            </div>
                         </div>
-                        <div className='product-example-counter'>
-                            <Counter props={[array, setArray, 0]}/>
-                        </div>
-                    </div>
+                    </Card>
                 </Col>
-                <Col lg={8}>
+                <Col lg={6}>
                     <div className="image-container">
-                        <img src={props.props.linkImage} alt={''} width={500} style={{ borderRadius: '10px' }} />
+                        <img src={props.props.linkImage} alt={''} width={500} style={{ borderRadius: '10px', margin: "41px"}} />
                     </div>
                 </Col>
+                <Col lg={2}></Col>
             </Row>
-            <div className="product-container">
-                <ProductCommon
-                    actionButtonProps={{
-                        actionButtonText: 'Добавить в корзину',
-                        onClick: () => {
-                            PostService.AddDishToCart(props.props.id, props.props.title, 1, array[0]);
-                            handleClick(props.props.title, array[0]);
-                        },
-                    }}
-                    product={product}
-                />
-            </div>
-            <div className='product-example-counter'>
-                <Counter props={[array, setArray, 0]}/>
-            </div>
-            <div className="image-container">
-                <img src={props.props.linkImage} alt={''} width={500} style={{ borderRadius: '10px' }} />
-            </div>
         </div>
     );
 };

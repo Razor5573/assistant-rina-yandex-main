@@ -1,5 +1,5 @@
 import React from 'react';
-import '../index.css'; // Подключение стилей для компонента
+import '../assets/style/index.css'
 
 const CustomCartItem = ({ item }) => {
 

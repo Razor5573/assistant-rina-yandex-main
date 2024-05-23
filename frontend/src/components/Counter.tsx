@@ -6,18 +6,21 @@ export function Counter(props:any) {
     const setValue = props.props[1]
     const index = props.props[2]
     const maxValue = props.props[3]
+    const shift = props.props[4]
     console.log(props)
     console.log(setValue)
 
     return (
-        <div style={{display: 'flex', alignItems: 'center'}}>
+        <div style={{display: 'flex', marginLeft: shift + "px"}}>
             <Button
+                color="warning"
                 onClick={() => {
                     if (values[index] > 1) {
                         setValue([...values.slice(0, index), values[index] - 1, ...values.slice(index + 1)]);
                     }
                 }}
                 style={{
+                    borderRadius: "10px", height: "40px", margin: "5px",
                     zIndex: 9999
                 }}
             >
@@ -35,10 +38,16 @@ export function Counter(props:any) {
                     width: '50px',
                     textAlign: 'center',
                     MozAppearance: 'textfield',
+                    borderRadius: "10px", height: "40px", margin: "5px",
                     zIndex: 9999
                 }}
             />
             <Button
+                style={{
+                    borderRadius: "10px", height: "40px", margin: "5px",
+                    zIndex: 9999
+                }}
+                color="warning"
                 onClick={() => {
                     if (values[index] < maxValue) {
                         setValue([...values.slice(0, index), values[index] + 1, ...values.slice(index + 1)]);

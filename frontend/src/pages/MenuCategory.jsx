@@ -6,7 +6,7 @@ import {Col, Row} from "reactstrap";
 function MenuCategory() {
     const [items, setItems] = useState([]);
 
-    useEffect(() => {                                                 //запускается один раз при вызове MenuCategory
+    useEffect(() => {
         PostService.GetMainMenu().then((response) => {
             console.log(response)
             setItems(response.data)
@@ -16,10 +16,12 @@ function MenuCategory() {
     return (
         <div className='menu-category'>
             <Row>
-                <h1>Категории</h1>
+                <h1 style={{fontFamily: 'TT Rationalist DemiBold', fontSize: 48, color: "#FFFFFF", marginTop: "20px"}}>
+                    Категории
+                </h1>
             </Row>
             <Row>
-                <Col xl={12} >
+                <Col xl={12}>
                     <CategoriesCarousel items={items}/>
                 </Col>
             </Row>

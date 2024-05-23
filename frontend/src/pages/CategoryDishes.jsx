@@ -7,6 +7,7 @@ import {
     Col,
     Row
 } from "reactstrap"
+import cartIcon from "../assets/img/сart-icon.svg"
 
 function CategoryDishes() {
     const router = useHistory()
@@ -25,8 +26,8 @@ function CategoryDishes() {
 
     return (
         <div className="wrapper" style={{ marginBottom: '25px' }}>
-                <Row>
-                    <Col lg={2}>
+                <Row className="justify-content-center">
+                    <Col lg={1}>
                         <Button
                             color="warning"
                             onClick={() => router.push("/restaurant")}
@@ -34,17 +35,23 @@ function CategoryDishes() {
                             {"<"}
                         </Button>
                     </Col>
-                    <Col lg={8}/>
-                    <Col lg={2}>
+                    <Col lg={10}/>
+                    <Col lg={1}>
                         <Button
                             color="warning"
                             onClick={() => router.push("/restaurant/cart")}
+                            style={{marginLeft: "15px"}}
                         >
-                            {"Корзина"}
+                            <img src={cartIcon} alt={"Корзина"}/>
                         </Button>
                     </Col>
                 </Row>
-            <h1>{titleCategory}</h1>
+            <h1 style={{
+                fontFamily: 'TT Rationalist DemiBold',
+                fontSize: 48,
+                color: "#FFFFFF",
+                marginTop: "20px"
+            }}>{titleCategory}</h1>
             <DishesList items={items}/>
         </div>
     );

@@ -1,4 +1,4 @@
-import {Button} from "reactstrap";
+import {Button, Card} from "reactstrap";
 import React from "react";
 import {toast, ToastContainer} from "react-toastify";
 
@@ -12,14 +12,43 @@ export const ProductCommon = ({ actionButtonProps, product }) => {
     return (
         <>
             <ToastContainer/>
+                <div
+                    className="product-name"
+                    style={{
+                        fontFamily: 'TT Rationalist DemiBold',
+                        fontSize: 24,
+                        color: "black",
+                        marginLeft: "20px",
+                        marginTop: "20px"
+                     }}
+                >
+                    {product.name}
+                </div>
+                <div
+                    className="product-price"
+                    style={{
+                        fontFamily: 'TT Rationalist DemiBold',
+                        fontSize: 24,
+                        marginLeft: "20px",
+                        color: "black",
+                    }}
+                >
+                    {product.price} {product.currency}
+                </div>
             <Button
                 {...actionButtonProps}
-                    onClick={handleClick}
+                onClick={handleClick}
+                color="warning"
+                style={{
+                fontFamily: 'TT Rationalist DemiBold',
+                fontSize: 18,
+                color: "black",
+                marginLeft: "20px",
+                marginTop: "20px"
+            }}
             >
-                {actionButtonProps.actionButtonText}
+            {actionButtonProps.actionButtonText}
             </Button>
-            <div className="product-name">{product.name}</div>
-            <div className="product-price">{product.price} {product.currency}</div>
         </>
     );
 };

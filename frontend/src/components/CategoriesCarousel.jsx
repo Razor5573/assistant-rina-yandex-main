@@ -55,7 +55,7 @@ function CategoriesCarousel(props) {
                         src={item.linkImage}
                         alt={item.altText}
                         onClick={() => onCardClick(item)}
-                        style={{ height: '600px', objectFit: 'cover' }} // Set a fixed height and object-fit property
+                        style={{ height: '600px', objectFit: 'cover' }}
                     />
                     <CardBody>
                         <CardTitle tag="h5">

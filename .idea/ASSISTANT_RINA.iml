@@ -26,6 +26,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="f667ad0c-af84-4a52-8881-32cce8679808" />

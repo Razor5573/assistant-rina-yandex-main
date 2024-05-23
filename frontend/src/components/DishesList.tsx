@@ -8,7 +8,7 @@ import {
     CardSubtitle,
     Button,
 } from "reactstrap"
-import '../index.css'
+import '../assets/style/index.css'
 import {useHistory} from "react-router-dom";
 import PostService from "../API/PostService";
 import {Counter} from "./Counter";
@@ -41,7 +41,7 @@ export function DishesList(props: any) {
     }, []);
 
     const [array, setArray] = useState(Array(12).fill(1));
-    if (props.items.length === 0) {         // это вращающаяся залупа в случае если элемент не отрисовывается или долго грузится
+    if (props.items.length === 0) {
         return (
             <div className="spinner">
                 <Spinner/>
@@ -52,7 +52,7 @@ export function DishesList(props: any) {
     const items = GenerateItems(props)
     
     return (
-        <Row>
+        <Row className="justify-content-center">
             <ToastContainer />
             {items.map((item, index) => (
                 <Card
@@ -63,27 +63,48 @@ export function DishesList(props: any) {
                             state: {id: item.id, title: item.title}
                         })
                     }}
-
+                    style={{border: "none"}}
                 >
-                    <img className="card" src={Array.isArray(item.image.src) ? item.image.src[0] : item.image.src}
-                         alt="product"/>
-
+                    <img
+                         className="card"
+                         src={Array.isArray(item.image.src) ? item.image.src[0] : item.image.src}
+                         alt="product"
+                         style={{border: "none"}}
+                    />
                     <CardBody>
-                        <CardTitle>{item.title}</CardTitle>
-                        <CardSubtitle>{item.weight + ' грамм'}</CardSubtitle>
-                        <Counter props={[array, setArray, index]}/>
+                        <CardTitle
+                            style={{
+                                fontFamily: 'TT Rationalist DemiBold',
+                                fontSize: 36,
+                                color: "#FFFFFF",
+                                marginTop: "20px",
+                                marginLeft: "420px"
+                            }}
+                        >
+                            {item.title}
+                        </CardTitle>
+                        <CardSubtitle style={{
+                            fontFamily: 'TT Rationalist DemiBold',
+                            fontSize: 20,
+                            color: "#FFFFFF",
+                            marginBottom: "20px",
+                            marginLeft: "420px"
+                        }}>{item.weight + ' грамм'}</CardSubtitle>
+                        <Counter props={[array, setArray, index, 9999, 420]}/>
                         <Button
-                            style={{marginTop: '1em', fontSize: "13px"}}
+                            color="warning"
+                            style={{marginTop: '1em', fontSize: "15px", marginLeft: "425px"}}
                             tabIndex={-1}
                             onClick={(event) => {
                                 event.stopPropagation();
                                 PostService.AddDishToCart(props.items[item.arrayId].id, item.title, 1, array[index])
                                 handleClick(item.title, array[index])
-                                }
+                            }
                             }
                         >
                             {'Добавить в корзину - ' + item.price * array[index] + ' ₽'}
                         </Button>
+                        <div style={{margin: "30px"}} className="white-stripe"></div>
                     </CardBody>
                 </Card>
             ))}

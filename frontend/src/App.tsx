@@ -1,22 +1,20 @@
-import {createAssistant} from '@salutejs/client';
-import React, {FC, useEffect, useRef} from 'react';
+
+import React, {FC} from 'react';
 import {BrowserRouter, useHistory} from 'react-router-dom';
 import AppRouter from './components/AppRouter';
 import Header from "./components/Header";
-import urljoin from "url-join";
-import PostService from "./API/PostService";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "reactstrap";
 
-const initAssistant = (getState: any) => {                              // тоже херня для голосового взаимодействия
+/*const initAssistant = (getState: any) => {
     return createAssistant({getState});
-}
+}*/
 
 export const App: FC = (() => {
     const router = useHistory()
     console.log(router)
 
-    function reducer(action: any) {
+    /*function reducer(action: any) {
         switch (action.type) {
             case "open_page":
                 switch (action.page) {
@@ -53,17 +51,17 @@ export const App: FC = (() => {
             default:
 
         }
-    }
-    const assistantRef = useRef<ReturnType<typeof createAssistant>>(); // 132-144 - видимо с помощью этой херни происходит
-                                                                                                    // реакция на голосовые команды и запускаются те же
-    useEffect(() => {                                                                  // экшны, которые запускаются при нажатиях в UI
-        assistantRef.current = initAssistant(() => {});
-        assistantRef.current.on("data", ({action}: any) => {
-            if (action) {
-                reducer(action);
-            }
-        });
-    })
+    }*/
+    // const assistantRef = useRef<ReturnType<typeof createAssistant>>(); // 132-144
+    //                                                                                                 // реакция на голосовые команды и запускаются те же
+    // useEffect(() => {                                                                  // экшны, которые запускаются при нажатиях в UI
+    //     assistantRef.current = initAssistant(() => {});
+    //     assistantRef.current.on("data", ({action}: any) => {
+    //         if (action) {
+    //             reducer(action);
+    //         }
+    //     });
+    // })
 
     /*const assistantStateRef = useRef<AssistantAppState>();
     const assistant = useRef<ReturnType<typeof createAssistant>>();

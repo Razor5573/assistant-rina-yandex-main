@@ -1,22 +1,19 @@
 import React from 'react';
 import {Button} from "reactstrap"
 import {useHistory} from "react-router-dom";
-
+import SuccessCartIcon from "../assets/img/success-сart-icon.svg"
 function Pay(){
     const router = useHistory()
     return (
         <div>
             <div>
-                <img src="cart-icon" alt="cart-icon"/> //гавно не работает (добавить иконку чек-карт
-                <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                />
-                <h2>Заказ успешно оплачен</h2>
+                <h2>
+                    Заказ успешно оплачен!
+                    <img style={{width: "25px", height: "25px", margin: "10px"}} src={SuccessCartIcon} alt="cart-icon"/>
+                </h2>
+
             </div>
-            <Button onClick={() => router.replace("/restaurant/cart")}>Вернуться в корзину</Button>
+            <Button color={"warning"} onClick={() => router.replace("/restaurant/cart")}>Вернуться в корзину</Button>
         </div>
     )
 }
